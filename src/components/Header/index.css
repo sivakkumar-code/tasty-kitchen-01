@@ -1,0 +1,142 @@
+.nav-link {
+  color: #000;
+  text-decoration: none;
+}
+.header {
+  /* background-color: rebeccapurple; */
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  font-family: 'DM Sans';
+  width: 100%;
+  padding: 32px 0;
+  background-color: #f8fafc;
+}
+.nav-desktop-container {
+  grid-column: 2 / span 10;
+  /* background-color: green; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+}
+.nav-website-logo-container {
+  display: flex;
+  align-items: center;
+}
+.nav-website-logo {
+  margin-right: 18px;
+}
+.nav-logo-title {
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #f7931e;
+}
+.nav-options {
+  color: #334155;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: -0.35555556416511536px;
+  text-align: left;
+}
+.desktop-ul-nav-container {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+.desktop-li-nav {
+  margin-right: 32px;
+}
+.desktop-li-nav:last-child {
+  margin-right: 0;
+}
+.nav-logout-btn {
+  height: 32px;
+  width: 73px;
+  left: 0px;
+  top: 0px;
+  border-radius: 8px;
+  padding: 8px 16px 8px 16px;
+  background-color: #f7931e;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.nav-selected {
+  color: #f7931e;
+}
+
+.nav-mobile-container {
+  display: none;
+}
+.drop-down-container {
+  display: none;
+}
+
+@media all and (max-width: 600px) {
+  .header {
+    padding: 0;
+  }
+  .nav-desktop-container {
+    display: none;
+  }
+  .nav-mobile-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: green; */
+    width: 100%;
+    grid-column: 1 / span 12;
+    padding: 20px;
+  }
+  .nav-website-logo-mobile {
+    height: 32px;
+    width: 39px;
+    margin-right: 8px;
+  }
+  .nav-logo-title-mobile {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #f7931e;
+  }
+  .hamburger-icon {
+    font-size: 24px;
+    color: #231f20;
+  }
+  .drop-down-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 24px;
+    width: 100%;
+    grid-column: 1 / span 12;
+  }
+  .hamburger-btn {
+    border: none;
+    background-color: transparent;
+  }
+  .close-btn {
+    border: none;
+    background-color: transparent;
+  }
+  .close-icon {
+    font-size: 24px;
+  }
+}
