@@ -2,8 +2,6 @@ import './index.css'
 
 const LoginForm = props => {
   const {
-    PassIdAttr,
-    UserIdAttr,
     username,
     password,
     errMsg,
@@ -15,26 +13,26 @@ const LoginForm = props => {
   return (
     <form className="login-form-main" onSubmit={e => sendLoginRequest(e)}>
       <div className="login-input-container">
-        <label htmlFor={UserIdAttr} className="login-label">
+        <label htmlFor="username-input" className="login-label">
           USERNAME
         </label>
         <input
           type="text"
           placeholder="Enter User Name"
-          id={UserIdAttr}
+          id="username-input"
           className="login-input-ele"
           value={username}
           onChange={e => readUsername(e)}
         />
       </div>
       <div className="login-input-container">
-        <label htmlFor={PassIdAttr} className="login-label">
+        <label htmlFor="password-input" className="login-label">
           PASSWORD
         </label>
         <input
           type="password"
           placeholder="Enter Password"
-          id={PassIdAttr}
+          id="password-input"
           className="login-input-ele"
           value={password}
           onChange={e => readPassword(e)}

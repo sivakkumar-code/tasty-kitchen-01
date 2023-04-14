@@ -90,13 +90,11 @@ class Home extends Component {
 
     return (
       <Slider {...settings}>
-        <ul>
-          {discountDetails.map(item => (
-            <li key={item.id} className="slide-container">
-              <img src={item.imgUrl} alt="offer" className="slide-images" />
-            </li>
-          ))}
-        </ul>
+        {discountDetails.map(item => (
+          <div key={item.id} className="slide-container">
+            <img src={item.imgUrl} alt="offer" className="slide-images" />
+          </div>
+        ))}
       </Slider>
     )
   }
@@ -112,7 +110,7 @@ class Home extends Component {
           <h1 className="restaurants-main-heading">Popular Restaurants</h1>
           <div className="sorting-section-outer-container">
             <p className="sorting-section-typo">
-              Select Your favorite restaurant special dish and make your day
+              Select Your favourite restaurant special dish and make your day
               happy...
             </p>
             <div className="sorting-section-main-container">
@@ -139,15 +137,21 @@ class Home extends Component {
         <ul className="restaurants-bottom-section">
           {restaurantsList.map(item => (
             <Link
-              key={item.id}
               className="nav-link"
+              // className="nav-link restaurant-grid-link"
               to={`/restaurant/${item.id}`}
+              key={item.id}
             >
-              <li className="restaurants-list-card" testId="restaurant-item">
+              <li
+                key={item.id}
+                className="restaurants-list-card"
+                testid="restaurant-item"
+              >
                 <div className="restaurants-list-card-img-container">
                   <img
                     src={item.imgUrl}
-                    alt="restaurant"
+                    //   alt="restaurant"
+                    alt={item.name}
                     className="restaurants-list-card-img"
                   />
                 </div>
@@ -171,18 +175,18 @@ class Home extends Component {
             type="button"
             onClick={this.decrementActivePageCount}
             className="pagination-btn"
-            testId="pagination-left-button"
+            testid="pagination-left-button"
           >
             <RiArrowLeftSLine />
           </button>
           <p className="pagination-page-num">
-            <span testId="active-page-number">{activePage}</span> of {totalPage}
+            <span testid="active-page-number">{activePage}</span> of {totalPage}
           </p>
           <button
             type="button"
             onClick={this.incrementActivePageCount}
             className="pagination-btn"
-            testId="pagination-right-button"
+            testid="pagination-right-button"
           >
             <RiArrowRightSLine />
           </button>
@@ -192,6 +196,7 @@ class Home extends Component {
   }
 
   fetchDiscountDetails = async () => {
+    this.setState({whatToDisplayInDiscount: discountDetailsApiStatus.loading})
     const jwtToken = Cookies.get('jwt_token')
     const url = 'https://apis.ccbp.in/restaurants-list/offers'
     const options = {
@@ -221,11 +226,12 @@ class Home extends Component {
   }
 
   fetchRestaurantsList = async () => {
+    this.setState({whatToDisplayInRestaurants: restaurantsApiStatus.loading})
     const {sortBy, activePage} = this.state
     const limit = 9
     const offset = (activePage - 1) * limit
     const jwtToken = Cookies.get('jwt_token')
-    const url = `https://apis.ccbp.in/restaurants-list?offset=${offset}&limit=${limit}&sort_by_rating=${sortBy}`
+    const url = `https://apis.ccbp.in/restaurants-list?search=${''}&offset=${offset}&limit=${limit}&sort_by_rating=${sortBy}`
     const options = {
       method: 'GET',
       headers: {

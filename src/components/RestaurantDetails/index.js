@@ -131,20 +131,21 @@ class RestaurantDetails extends Component {
           <li
             key={item.id}
             className="foodDetails-li-container"
-            testId="foodItem"
+            testid="foodItem"
           >
             <div className="foodDetails-list-card-img-container">
               <img
                 src={item.imageUrl}
-                alt="restaurant"
+                alt={item.name}
                 className="foodDetails-list-card-img"
               />
             </div>
             <div className="foodDetails-list-card-typo-container">
-              <p className="foodDetails-list-card-title">{item.name}</p>
+              <h1 className="foodDetails-list-card-title">{item.name}</h1>
               <p className="foodDetails-list-card-cuisine">
-                &#8377; {item.cost}
+                &#8377; {item.cost.toFixed(2)}
               </p>
+
               <div className="foodDetails-list-rating-container">
                 <AiFillStar className="star-icon" />
                 <p className="rating-num">{item.rating}</p>
@@ -191,12 +192,15 @@ class RestaurantDetails extends Component {
 
     return (
       <div className="banner-inner-container">
-        <div className="test">
+        {/* <div className="banner-img-mobile-container">
+          <img src={imgUrl} alt="restaurant" className="banner-image" />
+        </div> */}
+        <div className="test-container">
           <div className="banner-img-container">
             <img src={imgUrl} alt="restaurant" className="banner-image" />
           </div>
           <div className="banner-typo-container">
-            <p className="banner-title">{name}</p>
+            <h1 className="banner-title">{name}</h1>
             <p className="banner-common-typo">{cuisine}</p>
             <p className="banner-common-typo">{location}</p>
             <div className="review-container">

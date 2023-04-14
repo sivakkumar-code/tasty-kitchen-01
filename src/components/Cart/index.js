@@ -73,14 +73,14 @@ class Cart extends Component {
               <div className="cart-main-content-container">
                 <div className="cart-table-container">
                   <ul className="cart-table-top">
-                    <li className="cart-table-row">
-                      <div className="cart-table-col jus-flex-start">
+                    <li className="cart-table-row cart-table-top-row">
+                      <div className="cart-table-col jus-flex-start col-1">
                         <h1 className="col-title item-heading">Item</h1>
                       </div>
-                      <div className="cart-table-col">
+                      <div className="cart-table-col col-2">
                         <h1 className="col-title">Quantity</h1>
                       </div>
-                      <div className="cart-table-col">
+                      <div className="cart-table-col col-3">
                         <h1 className="col-title">Price</h1>
                       </div>
                     </li>
@@ -88,9 +88,9 @@ class Cart extends Component {
                       <li
                         key={item.id}
                         className="cart-table-row"
-                        testId="cartItem"
+                        testid="cartItem"
                       >
-                        <div className="cart-table-col">
+                        <div className="cart-table-col cart-table-img-container">
                           <div className="cart-img-container">
                             <img
                               src={item.imageUrl}
@@ -98,19 +98,23 @@ class Cart extends Component {
                               className="cart-img"
                             />
                           </div>
+                        </div>
+                        <div className="cart-table-col cart-table-col-typo">
                           <h1 className="foodItem-heading">{item.name}</h1>
                         </div>
-                        <div className="cart-table-col">
+                        <div className="cart-table-col cart-table-col-typo">
                           <Counter
                             quantity={item.quantity}
                             decrementQuantity={this.decrementQuantity}
                             incrementQuantity={this.incrementQuantity}
                             itemId={item.id}
+                            decTest="decrement-quantity"
+                            incTest="increment-quantity"
+                            quantTest="item-quantity"
                           />
                         </div>
-                        <div className="cart-table-col">
+                        <div className="cart-table-col cart-table-col-typo">
                           <p className="cart-food-item-price">
-                            {' '}
                             &#8377; {(item.quantity * item.cost).toFixed(2)}
                           </p>
                         </div>
@@ -121,61 +125,12 @@ class Cart extends Component {
                         <h1 className="order-total-heading">Order Total:</h1>
                       </div>
                       <div className="total-container">
-                        <p className="total-amount" testId="total-price">
+                        <p className="total-amount" testid="total-price">
                           &#8377; {total.toFixed(2)}
                         </p>
                         <button
                           type="button"
-                          className="btn-common-orange"
-                          onClick={this.placeOrder}
-                        >
-                          Place Order
-                        </button>
-                      </div>
-                    </li>
-                  </ul>
-                  <ul className="mobile-cart-table">
-                    {cartList.map(item => (
-                      <li
-                        key={item.id}
-                        className="mobile-cart-row"
-                        testId="cartItem"
-                      >
-                        <div className="mobile-cart-thumbnail-container">
-                          <img
-                            src={item.imageUrl}
-                            alt={item.name}
-                            className="mobile-cart-img"
-                          />
-                        </div>
-                        <div className="mobile-cart-typo-container">
-                          <p className="mobile-cart-title">{item.name}</p>
-                          <Counter
-                            quantity={item.quantity}
-                            decrementQuantity={this.decrementQuantity}
-                            incrementQuantity={this.incrementQuantity}
-                            itemId={item.id}
-                            incTest="increment-quantity"
-                            decTest="decrement-quantity"
-                            quantTest="item-quantity"
-                          />
-                          <p className="cart-food-item-price">
-                            &#8377; {(item.quantity * item.cost).toFixed(2)}
-                          </p>
-                        </div>
-                      </li>
-                    ))}
-                    <li className="mobile-cart-row cart-last">
-                      <div>
-                        <h1 className="order-total-heading">Order Total:</h1>
-                      </div>
-                      <div className="total-container">
-                        <p className="total-amount" testId="total-price">
-                          &#8377; {total.toFixed(2)}
-                        </p>
-                        <button
-                          type="button"
-                          className="btn-common-orange"
+                          className="btn-common-orange place-order-btn"
                           onClick={this.placeOrder}
                         >
                           Place Order
@@ -198,17 +153,19 @@ class Cart extends Component {
                     className="success-tick"
                   />
                   <h1 className="payment-success-title">Payment Successful</h1>
-                  <p className="payment-success-para">Thank you for ordering</p>
                   <p className="payment-success-para">
-                    Your payment is successfully completed.
+                    Thank you for ordering Your payment is successfully
+                    completed.
                   </p>
-                  <button
-                    type="button"
-                    className="btn-common-orange"
-                    onClick={this.goHomeAfterPayment}
-                  >
-                    Go To Home Page
-                  </button>
+                  <Link className="nav-link" to="/">
+                    <button
+                      type="button"
+                      className="btn-common-orange"
+                      // onClick={this.goHomeAfterPayment}
+                    >
+                      Go To Home Page
+                    </button>
+                  </Link>
                 </div>
               )}
               {cartList.length === 0 && (
@@ -218,7 +175,7 @@ class Cart extends Component {
                     alt="empty cart"
                     className="no-order-img"
                   />
-                  <h1 className="no-order-title">No Orders Yet!</h1>
+                  <h1 className="no-order-title">No Order Yet!</h1>
                   <p className="no-order-para">
                     Your cart is empty. Add something from the menu.
                   </p>

@@ -38,41 +38,41 @@ class Header extends Component {
     return (
       <header className="header">
         <nav className="nav-desktop-container">
-          <div className="nav-website-logo-container">
-            <Link to="/" className="nav-link">
-              <img
-                src="https://res.cloudinary.com/dmhszvxi1/image/upload/v1681138972/Tasty_Kitchens/tasty_kitchens_logo_svg_qrs64z.svg"
-                alt="website logo"
-                className="nav-website-logo"
-              />
-            </Link>
-            <h1 className="nav-logo-title">Tasty Kitchens</h1>
-          </div>
-          <ul className="desktop-ul-nav-container">
-            <li className="desktop-li-nav">
+          <ul className="desktop-ul-container">
+            <li>
               <Link to="/" className="nav-link">
-                <p
-                  className={`nav-options ${
-                    selected === 'Home' ? 'nav-selected' : ''
-                  }`}
-                >
-                  Home
-                </p>
+                <img
+                  src="https://res.cloudinary.com/dmhszvxi1/image/upload/v1681138972/Tasty_Kitchens/tasty_kitchens_logo_svg_qrs64z.svg"
+                  alt="website logo"
+                  className="nav-website-logo"
+                />
               </Link>
             </li>
-            <li className="desktop-li-nav">
-              <Link to="/cart" className="nav-link">
-                <p
-                  className={`nav-options ${
-                    selected === 'Cart' ? 'nav-selected' : ''
-                  }`}
-                >
-                  Cart
-                </p>
+            <li className="tasty-kitchen-list nav-logo-title">
+              {/* <h1 className="nav-logo-title">Tasty Kitchens</h1> */}
+              Tasty Kitchens
+            </li>
+            <li className="nav-link-list">
+              <Link
+                to="/"
+                className={`nav-link nav-options ${
+                  selected === 'Home' ? 'nav-selected' : ''
+                }`}
+              >
+                Home
               </Link>
             </li>
-
-            <li className="desktop-li-nav">
+            <li className="nav-link-list">
+              <Link
+                to="/cart"
+                className={`nav-link nav-options ${
+                  selected === 'Cart' ? 'nav-selected' : ''
+                }`}
+              >
+                Cart
+              </Link>
+            </li>
+            <li>
               <button
                 type="button"
                 className="nav-logout-btn"
@@ -84,49 +84,52 @@ class Header extends Component {
           </ul>
         </nav>
         <nav className="nav-mobile-container">
-          <div className="nav-website-logo-container">
-            <Link to="/" className="nav-link">
-              {' '}
-              <img
-                src="https://res.cloudinary.com/dmhszvxi1/image/upload/v1681138972/Tasty_Kitchens/tasty_kitchens_logo_svg_qrs64z.svg"
-                alt="website logo"
-                className="nav-website-logo-mobile"
-              />
-            </Link>
-
-            <h1 className="nav-logo-title-mobile">Tasty Kitchens</h1>
-          </div>
-          <button
-            type="button"
-            className="hamburger-btn"
-            onClick={this.onHamburgerBtnClick}
-          >
-            <GiHamburgerMenu className="hamburger-icon" />
-          </button>
+          <ul className="nav-website-logo-container">
+            <li>
+              <Link to="/" className="nav-link">
+                <img
+                  src="https://res.cloudinary.com/dmhszvxi1/image/upload/v1681138972/Tasty_Kitchens/tasty_kitchens_logo_svg_qrs64z.svg"
+                  alt="website logo"
+                  className="nav-website-logo-mobile"
+                />
+              </Link>
+            </li>
+            <li className="tasty-kitchen-list nav-logo-title-mobile">
+              {/* <h1 className="nav-logo-title-mobile">Tasty Kitchens</h1> */}
+              Tasty Kitchens
+            </li>
+            <li>
+              <button
+                type="button"
+                className="hamburger-btn"
+                onClick={this.onHamburgerBtnClick}
+              >
+                <GiHamburgerMenu className="hamburger-icon" />
+              </button>
+            </li>
+          </ul>
         </nav>
         {isHamburgerClicked && (
           <div className="drop-down-container">
             <ul className="desktop-ul-nav-container">
               <li className="desktop-li-nav">
-                <Link to="/" className="nav-link">
-                  <p
-                    className={`nav-options ${
-                      selected === 'Home' ? 'nav-selected' : ''
-                    }`}
-                  >
-                    Home
-                  </p>
+                <Link
+                  to="/"
+                  className={`nav-link nav-options ${
+                    selected === 'Home' ? 'nav-selected' : ''
+                  }`}
+                >
+                  Home
                 </Link>
               </li>
               <li className="desktop-li-nav">
-                <Link to="/cart" className="nav-link">
-                  <p
-                    className={`nav-options ${
-                      selected === 'Cart' ? 'nav-selected' : ''
-                    }`}
-                  >
-                    Cart
-                  </p>
+                <Link
+                  to="/cart"
+                  className={`nav-link nav-options ${
+                    selected === 'Cart' ? 'nav-selected' : ''
+                  }`}
+                >
+                  Cart
                 </Link>
               </li>
 
@@ -139,14 +142,16 @@ class Header extends Component {
                   Logout
                 </button>
               </li>
+              <li className="mobile-close-btn-container">
+                <button
+                  type="button"
+                  className="close-btn"
+                  onClick={this.onCloseBtnClick}
+                >
+                  <AiFillCloseCircle className="close-icon" />
+                </button>
+              </li>
             </ul>
-            <button
-              type="button"
-              className="close-btn"
-              onClick={this.onCloseBtnClick}
-            >
-              <AiFillCloseCircle className="close-icon" />
-            </button>
           </div>
         )}
       </header>

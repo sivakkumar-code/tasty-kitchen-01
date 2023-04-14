@@ -8,14 +8,6 @@ import ProtectedRoute from './components/ProtectedRoute'
 import NotFound from './components/NotFound'
 import './App.css'
 
-// const data = JSON.parse(localStorage.getItem('cartData'))
-// let mainData
-// if (data !== undefined) {
-//   mainData = data
-// } else {
-//   mainData = []
-// }
-
 const App = () => (
   <Switch>
     <Route exact path="/login" component={Login} />

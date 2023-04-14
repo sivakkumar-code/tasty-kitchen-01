@@ -12,6 +12,7 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   flex-grow: 1;
+  list-style-type: none;
 }
 .home-offers-section {
   margin-top: 16px;
@@ -125,6 +126,15 @@
   gap: 32px;
 }
 .restaurants-list-card {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 16px;
+  /* background-color: yellow; */
+}
+.restaurant-grid-link {
+  grid-column: 1 / span 2;
+}
+.restaurants-list-div-card {
   display: grid;
   grid-template-columns: 160px 1fr;
   gap: 16px;

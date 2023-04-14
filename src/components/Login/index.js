@@ -57,6 +57,7 @@ class Login extends Component {
                   <img
                     src="https://res.cloudinary.com/dmhszvxi1/image/upload/v1681138972/Tasty_Kitchens/tasty_kitchens_logo_svg_qrs64z.svg"
                     alt="website logo"
+                    className="login-desktop-img"
                   />
                   <h1 className="login-logo-title">Tasty Kitchens</h1>
                 </div>
@@ -64,8 +65,6 @@ class Login extends Component {
               </div>
               <div className="login-main">
                 <LoginForm
-                  PassIdAttr="password-input-desktop"
-                  UserIdAttr="username-input-desktop"
                   username={username}
                   password={password}
                   errMsg={errMsg}
@@ -81,34 +80,6 @@ class Login extends Component {
               src="https://res.cloudinary.com/dmhszvxi1/image/upload/v1681130225/Tasty_Kitchens/desktop_login_page_image_pa3jgi.png"
               alt="website login"
               className="login-image"
-            />
-          </div>
-        </div>
-
-        <div className="login-bg-container-mobile">
-          <div className="login-mobile-top-section">
-            {/* <img
-              src="https://res.cloudinary.com/dmhszvxi1/image/upload/v1681130225/Tasty_Kitchens/desktop_login_page_image_pa3jgi.png"
-              alt="website login"
-              className="login-image-tablet"
-            /> */}
-            <img
-              src="https://res.cloudinary.com/dmhszvxi1/image/upload/v1681130236/Tasty_Kitchens/mobile_login_page_image_jkyv1q.png"
-              alt="website login"
-              className="login-image-mobile"
-            />
-            <h1 className="login-login-heading heading-mobile">Login</h1>
-          </div>
-          <div className="login-main-mobile">
-            <LoginForm
-              PassIdAttr="password-input-mobile"
-              UserIdAttr="username-input-mobile"
-              username={username}
-              password={password}
-              errMsg={errMsg}
-              readUsername={this.readUsername}
-              readPassword={this.readPassword}
-              sendLoginRequest={this.sendLoginRequest}
             />
           </div>
         </div>

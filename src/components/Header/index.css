@@ -1,6 +1,7 @@
 .nav-link {
   color: #000;
   text-decoration: none;
+  cursor: pointer;
 }
 .header {
   /* background-color: rebeccapurple; */
@@ -139,4 +140,33 @@
   .close-icon {
     font-size: 24px;
   }
+}
+
+/* ------------------------------------------------------- */
+.desktop-ul-container {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  background-color: #f8fafc;
+  width: 100%;
+}
+.tasty-kitchen-list {
+  flex-grow: 1;
+}
+.nav-link-list {
+  margin-right: 30px;
+}
+.nav-website-logo-container {
+  list-style-type: none;
+  /* background-color: red; */
+  width: 100%;
+}
+.mobile-close-btn-container {
+  /* background-color: red; */
+  flex-grow: 1;
+  text-align: end;
+}
+.desktop-ul-nav-container {
+  /* background-color: green; */
+  width: 100%;
 }

@@ -21,18 +21,29 @@ export default function Footer() {
       <p className="footer-typo">
         The only thing we are serious about is food. Contact us on
       </p>
-      <div className="footer-social-container">
-        <FaPinterestSquare
-          className="social-icons"
-          testId="pintrest-social-icon"
-        />
-        <FaInstagram className="social-icons" testId="instagram-social-icon" />
-        <FaTwitter className="social-icons" testId="twitter-social-icon" />
-        <FaFacebookSquare
-          className="social-icons"
-          testId="facebook-social-icon"
-        />
-      </div>
+      <ul className="footer-social-container">
+        <li className="icon-container">
+          <FaPinterestSquare
+            className="social-icons"
+            testid="pintrest-social-icon"
+          />
+        </li>
+        <li className="icon-container">
+          <FaInstagram
+            className="social-icons"
+            testid="instagram-social-icon"
+          />
+        </li>
+        <li className="icon-container">
+          <FaTwitter className="social-icons" testid="twitter-social-icon" />
+        </li>
+        <li className="icon-container">
+          <FaFacebookSquare
+            className="social-icons"
+            testid="facebook-social-icon"
+          />
+        </li>
+      </ul>
     </footer>
   )
 }

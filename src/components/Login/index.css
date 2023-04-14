@@ -17,12 +17,6 @@
   /* font-family: 'DM Sans'; */
 }
 
-@media all and (max-width: 768px) {
-  .login-bg-container-desktop {
-    display: none;
-  }
-}
-
 .login-inputs-container {
   max-width: 92%;
   width: 456px;
@@ -74,7 +68,7 @@
   /* min-height: 1024px; */
   /* min-height: 100vh; */
   /* height: 1024px; */
-  width: 45%;
+  /* width: 45%; */
   width: 55%;
   display: flex;
   justify-content: center;
@@ -93,65 +87,100 @@
 /* ----------------------- Mobile View -------------------------- */
 
 @media all and (max-width: 768px) {
-  .login-bg-container-mobile {
-    height: 100vh;
+  .login-image {
+    display: none;
+  }
+  .login-right-section {
+    width: 100%;
+  }
+  .login-left-section {
+    order: 2;
+    width: 100%;
+    border-radius: 0;
+    flex-grow: 1;
+  }
+  .login-logo-text-container {
+    display: none;
+  }
+  .login-mobile-top-section {
+    display: none;
+  }
+  .login-login-heading {
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .login-right-section {
+    background-image: url('https://res.cloudinary.com/dmhszvxi1/image/upload/v1681130236/Tasty_Kitchens/mobile_login_page_image_jkyv1q.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top right;
+    min-height: 50vh;
+  }
+  .login-inputs-container {
+    max-width: 100%;
+    width: 100%;
+    padding: 24px;
+  }
+  .login-bg-container-desktop {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+  }
+}
+
+/* 
+.login-mobile-top-section {
+  display: none;
+}
+
+@media all and (max-width: 768px) {
+  .login-mobile-top-section {
+    display: inline-block;
+    padding-left: 24px;
+    margin-bottom: 10px;
+  }
+  .login-image {
+    display: none;
+  }
+  .login-bg-container-desktop {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .login-inputs-container {
+    max-width: 100%;
+    width: 100%;
+    padding: 24px;
   }
 
+  .login-left-section {
+    order: 2;
+  }
+  .login-right-section {
+    width: 100%;
+  }
+  .login-mobile-top-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
   .login-image-mobile {
+    align-self: flex-end;
     display: inline-block;
-    align-content: flex-end;
     width: 80%;
   }
-
-  .login-mobile-top-section {
-    /* padding: 24px; */
-    padding-left: 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    /* background-color: green; */
-    /* flex-grow: 2; */
-  }
-
-  .login-image-tablet {
-    width: 100%;
-    max-height: 60vh;
-    display: inline-block;
-    object-fit: cover;
-    border-radius: 20px;
-  }
-  /* .login-image-mobile {
-    display: none;
-  } */
   .heading-mobile {
-    /* background-color: red; */
     align-self: flex-start;
     margin: 0;
   }
-  .login-main-mobile {
-    padding: 24px;
-    /* flex-grow: 1; */
-    /* background-color: rebeccapurple; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  .login-main {
+    width: 100%;
   }
-}
-
-@media all and (max-width: 520px) {
-  .login-mobile-top-section {
-    padding: 0;
-    padding-left: 24px;
+  .login-left-section {
+    width: 100%;
+    border-radius: 0;
+    flex-grow: 1;
   }
-  .login-image-tablet {
-    display: none;
-  }
-  .login-image-mobile {
-    display: inline-block;
-    align-content: flex-end;
-    width: 85%;
-  }
-}
+} */
