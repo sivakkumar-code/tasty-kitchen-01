@@ -88,7 +88,7 @@ class Cart extends Component {
                       <li
                         key={item.id}
                         className="cart-table-row"
-                        testid="cartItem"
+                        data-testid="cartItem"
                       >
                         <div className="cart-table-col cart-table-img-container">
                           <div className="cart-img-container">
@@ -125,7 +125,7 @@ class Cart extends Component {
                         <h1 className="order-total-heading">Order Total:</h1>
                       </div>
                       <div className="total-container">
-                        <p className="total-amount" testid="total-price">
+                        <p className="total-amount" data-testid="total-price">
                           &#8377; {total.toFixed(2)}
                         </p>
                         <button

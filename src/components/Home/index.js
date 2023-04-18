@@ -86,7 +86,12 @@ class Home extends Component {
 
   offerSlides = () => {
     const {discountDetails} = this.state
-    const settings = {dots: true}
+    const settings = {
+      dots: true,
+      autoplay: true,
+      autoplaySpeed: 2500,
+      pauseOnHover: true,
+    }
 
     return (
       <Slider {...settings}>
@@ -136,57 +141,61 @@ class Home extends Component {
         </div>
         <ul className="restaurants-bottom-section">
           {restaurantsList.map(item => (
-            <Link
-              className="nav-link"
-              // className="nav-link restaurant-grid-link"
-              to={`/restaurant/${item.id}`}
+            <li
               key={item.id}
+              className="restaurants-list-card"
+              data-testid="restaurant-item"
             >
-              <li
-                key={item.id}
-                className="restaurants-list-card"
-                testid="restaurant-item"
+              <Link
+                className="nav-link restaurant-grid-link"
+                to={`/restaurant/${item.id}`}
               >
-                <div className="restaurants-list-card-img-container">
-                  <img
-                    src={item.imgUrl}
-                    //   alt="restaurant"
-                    alt={item.name}
-                    className="restaurants-list-card-img"
-                  />
-                </div>
-                <div className="restaurants-list-card-typo">
-                  <p className="restaurants-list-card-title">{item.name}</p>
-                  <p className="restaurants-list-card-cuisine">
-                    {item.cuisine}
-                  </p>
-                  <div className="restaurants-list-rating-container">
-                    <AiFillStar className="star-icon" />
-                    <p className="rating-num">{item.userRating.rating}</p>
-                    <p className="num-of-ratings">{`(${item.userRating.totalReviews} ratings)`}</p>
+                <div className="restaurants-list-div-card">
+                  <div className="restaurants-list-card-img-container">
+                    <img
+                      src={item.imgUrl}
+                      alt="restaurant"
+                      className="restaurants-list-card-img"
+                    />
+                  </div>
+                  <div className="restaurants-list-card-typo">
+                    <h1 className="restaurants-list-card-title">{item.name}</h1>
+                    <p className="restaurants-list-card-cuisine">
+                      {item.cuisine}
+                    </p>
+                    <div className="restaurants-list-rating-container">
+                      <AiFillStar className="star-icon" />
+                      <h1 className="rating-num">{item.userRating.rating}</h1>
+                      <p className="num-of-ratings">{`(${item.userRating.totalReviews} ratings)`}</p>
+                    </div>
                   </div>
                 </div>
-              </li>
-            </Link>
+              </Link>
+            </li>
           ))}
         </ul>
         <div className="pagination-btn-container">
           <button
             type="button"
             onClick={this.decrementActivePageCount}
-            className="pagination-btn"
-            testid="pagination-left-button"
+            className={`pagination-btn ${
+              activePage === 1 ? 'opacity-pagination-btn' : ''
+            }`}
+            data-testid="pagination-left-button"
           >
             <RiArrowLeftSLine />
           </button>
           <p className="pagination-page-num">
-            <span testid="active-page-number">{activePage}</span> of {totalPage}
+            <span data-testid="active-page-number">{activePage}</span> of{' '}
+            {totalPage}
           </p>
           <button
             type="button"
             onClick={this.incrementActivePageCount}
-            className="pagination-btn"
-            testid="pagination-right-button"
+            className={`pagination-btn ${
+              activePage === totalPage ? 'opacity-pagination-btn' : ''
+            }`}
+            data-testid="pagination-right-button"
           >
             <RiArrowRightSLine />
           </button>
@@ -307,12 +316,14 @@ class Home extends Component {
       <div className="home-bg-container">
         <div className="home-main-container">
           <Header />
-          <ul className="home-main-content-container">
-            <li className="home-offers-section">{this.displayOffersSlide()}</li>
-            <li className="home-restaurants-section">
+          <div className="home-main-content-container">
+            <div className="home-offers-section">
+              {this.displayOffersSlide()}
+            </div>
+            <div className="home-restaurants-section">
               {this.displayRestaurants()}
-            </li>
-          </ul>
+            </div>
+          </div>
           <Footer />
         </div>
       </div>
@@ -321,3 +332,36 @@ class Home extends Component {
 }
 
 export default Home
+
+/* <Link
+              className="nav-link"
+              // className="nav-link restaurant-grid-link"
+              to={`/restaurant/${item.id}`}
+              key={item.id}
+            >
+              <li
+                key={item.id}
+                className="restaurants-list-card"
+                testid="restaurant-item"
+              >
+                <div className="restaurants-list-card-img-container">
+                  <img
+                    src={item.imgUrl}
+                    //   alt="restaurant"
+                    alt={item.name}
+                    className="restaurants-list-card-img"
+                  />
+                </div>
+                <div className="restaurants-list-card-typo">
+                  <h1 className="restaurants-list-card-title">{item.name}</h1>
+                  <p className="restaurants-list-card-cuisine">
+                    {item.cuisine}
+                  </p>
+                  <div className="restaurants-list-rating-container">
+                    <AiFillStar className="star-icon" />
+                    <h1 className="rating-num">{item.userRating.rating}</h1>
+                    <p className="num-of-ratings">{`(${item.userRating.totalReviews} ratings)`}</p>
+                  </div>
+                </div>
+              </li>
+            </Link> */

@@ -9,14 +9,18 @@ import LoaderComp from '../LoaderComp'
 
 import './index.css'
 
-const restaurantsDetailApi = {success: 'SUCCESS', loading: 'LOADING'}
+const restaurantsDetailApi = {
+  success: 'SUCCESS',
+  loading: 'LOADING',
+  initial: 'INITIAL',
+}
 
 class RestaurantDetails extends Component {
   state = {
     restaurantDetailsList: {},
     foodItemsList: [],
     addedList: JSON.parse(localStorage.getItem('cartData')),
-    whatToDisplay: restaurantsDetailApi.loading,
+    whatToDisplay: restaurantsDetailApi.initial,
   }
 
   componentDidMount() {
@@ -131,7 +135,7 @@ class RestaurantDetails extends Component {
           <li
             key={item.id}
             className="foodDetails-li-container"
-            testid="foodItem"
+            data-testid="foodItem"
           >
             <div className="foodDetails-list-card-img-container">
               <img
@@ -144,6 +148,7 @@ class RestaurantDetails extends Component {
               <h1 className="foodDetails-list-card-title">{item.name}</h1>
               <p className="foodDetails-list-card-cuisine">
                 &#8377; {item.cost.toFixed(2)}
+                {/* {item.cost} */}
               </p>
 
               <div className="foodDetails-list-rating-container">

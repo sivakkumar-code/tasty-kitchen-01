@@ -333,3 +333,7 @@
     display: none !important;
   }
 }
+
+.opacity-pagination-btn {
+  opacity: 0.5;
+}

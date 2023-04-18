@@ -95,8 +95,7 @@ class Header extends Component {
               </Link>
             </li>
             <li className="tasty-kitchen-list nav-logo-title-mobile">
-              {/* <h1 className="nav-logo-title-mobile">Tasty Kitchens</h1> */}
-              Tasty Kitchens
+              <h1 className="nav-logo-title-mobile">Tasty Kitchens</h1>
             </li>
             <li>
               <button
