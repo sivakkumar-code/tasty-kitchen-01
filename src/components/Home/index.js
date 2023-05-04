@@ -94,7 +94,7 @@ class Home extends Component {
     }
 
     return (
-      <Slider {...settings}>
+      <Slider {...settings} className="slider-main">
         {discountDetails.map(item => (
           <div key={item.id} className="slide-container">
             <img src={item.imgUrl} alt="offer" className="slide-images" />
@@ -332,36 +332,3 @@ class Home extends Component {
 }
 
 export default Home
-
-/* <Link
-              className="nav-link"
-              // className="nav-link restaurant-grid-link"
-              to={`/restaurant/${item.id}`}
-              key={item.id}
-            >
-              <li
-                key={item.id}
-                className="restaurants-list-card"
-                testid="restaurant-item"
-              >
-                <div className="restaurants-list-card-img-container">
-                  <img
-                    src={item.imgUrl}
-                    //   alt="restaurant"
-                    alt={item.name}
-                    className="restaurants-list-card-img"
-                  />
-                </div>
-                <div className="restaurants-list-card-typo">
-                  <h1 className="restaurants-list-card-title">{item.name}</h1>
-                  <p className="restaurants-list-card-cuisine">
-                    {item.cuisine}
-                  </p>
-                  <div className="restaurants-list-rating-container">
-                    <AiFillStar className="star-icon" />
-                    <h1 className="rating-num">{item.userRating.rating}</h1>
-                    <p className="num-of-ratings">{`(${item.userRating.totalReviews} ratings)`}</p>
-                  </div>
-                </div>
-              </li>
-            </Link> */

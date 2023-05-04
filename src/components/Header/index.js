@@ -34,6 +34,8 @@ class Header extends Component {
 
   render() {
     const {isHamburgerClicked, selected} = this.state
+    const cartListItems = JSON.parse(localStorage.getItem('cartData'))
+    console.log(cartListItems.length)
 
     return (
       <header className="header">
@@ -49,8 +51,7 @@ class Header extends Component {
               </Link>
             </li>
             <li className="tasty-kitchen-list nav-logo-title">
-              {/* <h1 className="nav-logo-title">Tasty Kitchens</h1> */}
-              Tasty Kitchens
+              <h1 className="nav-logo-title">Tasty Kitchens</h1>
             </li>
             <li className="nav-link-list">
               <Link
@@ -71,6 +72,11 @@ class Header extends Component {
               >
                 Cart
               </Link>
+              {cartListItems.length !== 0 ? (
+                <span className="cart-item-count">{cartListItems.length}</span>
+              ) : (
+                ''
+              )}
             </li>
             <li>
               <button
@@ -84,7 +90,7 @@ class Header extends Component {
           </ul>
         </nav>
         <nav className="nav-mobile-container">
-          <ul className="nav-website-logo-container">
+          <ul className="nav-mobile-ul-container">
             <li>
               <Link to="/" className="nav-link">
                 <img
@@ -110,8 +116,8 @@ class Header extends Component {
         </nav>
         {isHamburgerClicked && (
           <div className="drop-down-container">
-            <ul className="desktop-ul-nav-container">
-              <li className="desktop-li-nav">
+            <ul className="mobile-drop-down-ul-container">
+              <li className="mobile-li-nav">
                 <Link
                   to="/"
                   className={`nav-link nav-options ${
@@ -121,7 +127,7 @@ class Header extends Component {
                   Home
                 </Link>
               </li>
-              <li className="desktop-li-nav">
+              <li className="mobile-li-nav">
                 <Link
                   to="/cart"
                   className={`nav-link nav-options ${
@@ -130,9 +136,16 @@ class Header extends Component {
                 >
                   Cart
                 </Link>
+                {cartListItems.length !== 0 ? (
+                  <span className="cart-item-count">
+                    {cartListItems.length}
+                  </span>
+                ) : (
+                  ''
+                )}
               </li>
 
-              <li className="desktop-li-nav">
+              <li className="mobile-li-nav">
                 <button
                   type="button"
                   className="nav-logout-btn"

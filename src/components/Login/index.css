@@ -1,30 +1,16 @@
 .login-responsive-container {
-  /* min-height: 100vh; */
   background-color: #000;
   background-color: #221c11;
   height: 100vh;
+  height: 100dvh;
   font-family: 'DM Sans';
 }
 
-@media all and (max-width: 768px) {
-  .login-responsive-container {
-    background-color: #fff;
-  }
-}
-
-.login-bg-container-desktop {
+.login-bg-container {
   display: flex;
-  /* font-family: 'DM Sans'; */
 }
 
-.login-inputs-container {
-  max-width: 92%;
-  width: 456px;
-  /* background-color: red; */
-  box-shadow: 0px 8px 40px rgba(7, 7, 7, 0.08);
-  border-radius: 8px;
-  padding: 48px;
-}
+/* ------------------------- Left Section ----------------------- */
 
 .login-left-section {
   display: flex;
@@ -32,10 +18,17 @@
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  width: 55%;
   width: 45%;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+
+.login-inputs-container {
+  max-width: 92%;
+  width: 456px;
+  box-shadow: 0px 8px 40px rgba(7, 7, 7, 0.08);
+  border-radius: 8px;
+  padding: 48px;
 }
 
 .login-logo-text-container {
@@ -50,7 +43,6 @@
   line-height: 32px;
   font-style: italic;
   margin-top: 2px;
-  /* font-family: 'DM Sans'; */
 }
 
 .login-login-heading {
@@ -61,14 +53,11 @@
   text-align: center;
   margin-top: 32px;
   margin-bottom: 64px;
-  /* font-family: 'DM Sans'; */
 }
+
+/* ------------------------- Right Section ----------------------- */
+
 .login-right-section {
-  /* background-color: gray; */
-  /* min-height: 1024px; */
-  /* min-height: 100vh; */
-  /* height: 1024px; */
-  /* width: 45%; */
   width: 55%;
   display: flex;
   justify-content: center;
@@ -76,111 +65,59 @@
 }
 .login-image {
   width: 100%;
-  /* height: 1024px; */
   height: 100vh;
+  height: 100dvh;
   object-fit: cover;
-}
-.login-bg-container-mobile {
-  display: none;
 }
 
 /* ----------------------- Mobile View -------------------------- */
 
 @media all and (max-width: 768px) {
+  .login-responsive-container {
+    background-color: #fff;
+  }
+
+  .login-bg-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
   .login-image {
     display: none;
   }
-  .login-right-section {
-    width: 100%;
-  }
+
   .login-left-section {
     order: 2;
     width: 100%;
     border-radius: 0;
     flex-grow: 1;
   }
+
   .login-logo-text-container {
     display: none;
   }
-  .login-mobile-top-section {
-    display: none;
-  }
+
   .login-login-heading {
     text-align: left;
     margin-top: 10px;
     margin-bottom: 20px;
   }
+
   .login-right-section {
     background-image: url('https://res.cloudinary.com/dmhszvxi1/image/upload/v1681130236/Tasty_Kitchens/mobile_login_page_image_jkyv1q.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: top right;
     min-height: 50vh;
-  }
-  .login-inputs-container {
-    max-width: 100%;
     width: 100%;
-    padding: 24px;
-  }
-  .login-bg-container-desktop {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-}
-
-/* 
-.login-mobile-top-section {
-  display: none;
-}
-
-@media all and (max-width: 768px) {
-  .login-mobile-top-section {
-    display: inline-block;
     padding-left: 24px;
-    margin-bottom: 10px;
-  }
-  .login-image {
-    display: none;
-  }
-  .login-bg-container-desktop {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  .login-inputs-container {
-    max-width: 100%;
-    width: 100%;
-    padding: 24px;
   }
 
-  .login-left-section {
-    order: 2;
-  }
-  .login-right-section {
+  .login-inputs-container {
     width: 100%;
+    max-width: 100%;
+    padding: 24px;
+    box-shadow: none;
   }
-  .login-mobile-top-section {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  .login-image-mobile {
-    align-self: flex-end;
-    display: inline-block;
-    width: 80%;
-  }
-  .heading-mobile {
-    align-self: flex-start;
-    margin: 0;
-  }
-  .login-main {
-    width: 100%;
-  }
-  .login-left-section {
-    width: 100%;
-    border-radius: 0;
-    flex-grow: 1;
-  }
-} */
+}

@@ -56,16 +56,6 @@ class RestaurantDetails extends Component {
     }
   }
 
-  //   removeAddBtn = id =>
-  //     this.setState(prevState => ({
-  //       foodItemsList: prevState.foodItemsList.map(item => {
-  //         if (item.id === id) {
-  //           return {...item, quantity: 0}
-  //         }
-  //         return item
-  //       }),
-  //     }))
-
   incrementQuantity = id =>
     this.setState(prevState => ({
       foodItemsList: prevState.foodItemsList.map(item => {
@@ -110,22 +100,6 @@ class RestaurantDetails extends Component {
     }
   }
 
-  //   decrementQuantity = id =>
-  //     this.setState(prevState => ({
-  //       foodItemsList: prevState.foodItemsList.map(item => {
-  //         if (item.id === id) {
-  //           return {...item, quantity: item.quantity - 1}
-  //         }
-  //         return item
-  //       }),
-  //       addedList: prevState.addedList.map(item => {
-  //         if (item.id === id) {
-  //           return {...item, quantity: item.quantity - 1}
-  //         }
-  //         return item
-  //       }),
-  //     }))
-
   foodDetails = () => {
     const {foodItemsList} = this.state
 
@@ -145,15 +119,16 @@ class RestaurantDetails extends Component {
               />
             </div>
             <div className="foodDetails-list-card-typo-container">
-              <h1 className="foodDetails-list-card-title">{item.name}</h1>
+              <h1 className="foodDetails-list-card-title">
+                {item.name[0].toUpperCase() + item.name.slice(1)}
+              </h1>
               <p className="foodDetails-list-card-cuisine">
                 &#8377; {item.cost.toFixed(2)}
-                {/* {item.cost} */}
               </p>
 
               <div className="foodDetails-list-rating-container">
                 <AiFillStar className="star-icon" />
-                <p className="rating-num">{item.rating}</p>
+                <p className="rating-num flex-grow-1">{item.rating}</p>
               </div>
               {item.quantity === 0 && (
                 <button
@@ -177,6 +152,19 @@ class RestaurantDetails extends Component {
                 />
               )}
             </div>
+            <span
+              className={`food-type ${
+                item.foodType === 'VEG' ? 'type-veg' : 'type-non-veg'
+              }`}
+            >
+              <span
+                className={`circle ${
+                  item.foodType === 'VEG' ? 'green' : 'red'
+                }`}
+              >
+                {}
+              </span>
+            </span>
           </li>
         ))}
       </ul>
@@ -197,10 +185,7 @@ class RestaurantDetails extends Component {
 
     return (
       <div className="banner-inner-container">
-        {/* <div className="banner-img-mobile-container">
-          <img src={imgUrl} alt="restaurant" className="banner-image" />
-        </div> */}
-        <div className="test-container">
+        <div className="wrapper-container">
           <div className="banner-img-container">
             <img src={imgUrl} alt="restaurant" className="banner-image" />
           </div>
@@ -279,7 +264,6 @@ class RestaurantDetails extends Component {
       <li className="banner-holder-section">
         <div className="details-banner-section">{this.bannerDetails()}</div>
       </li>
-      {/* <div className="details-banner-section">{this.bannerDetails()}</div> */}
       <li className="details-restaurants-section">{this.foodDetails()}</li>
     </>
   )
@@ -300,9 +284,6 @@ class RestaurantDetails extends Component {
   render() {
     const {addedList} = this.state
     localStorage.setItem('cartData', JSON.stringify(addedList))
-    // if (addedList.length !== 0) {
-    //   localStorage.setItem('cartData', JSON.stringify(addedList))
-    // }
 
     return (
       <div className="details-bg-container">

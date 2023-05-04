@@ -3,8 +3,8 @@
   text-decoration: none;
   cursor: pointer;
 }
+
 .header {
-  /* background-color: rebeccapurple; */
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   font-family: 'DM Sans';
@@ -12,9 +12,11 @@
   padding: 32px 0;
   background-color: #f8fafc;
 }
+
+/* ------------------------------ Desktop Nav ------------------------------ */
+
 .nav-desktop-container {
   grid-column: 2 / span 10;
-  /* background-color: green; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -22,13 +24,129 @@
   max-width: 1440px;
   margin-inline: auto;
 }
-.nav-website-logo-container {
+
+.desktop-ul-container {
   display: flex;
   align-items: center;
+  list-style-type: none;
+  background-color: #f8fafc;
+  width: 100%;
 }
+
 .nav-website-logo {
   margin-right: 18px;
 }
+
+.nav-mobile-container {
+  display: none;
+}
+
+.drop-down-container {
+  display: none;
+}
+
+/* ------------------------------ Mobile Nav ------------------------------ */
+
+@media all and (max-width: 600px) {
+  .header {
+    padding: 0;
+  }
+
+  .nav-desktop-container {
+    display: none;
+  }
+
+  .nav-mobile-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    grid-column: 1 / span 12;
+    padding: 20px;
+  }
+
+  .nav-mobile-ul-container {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    width: 100%;
+  }
+
+  .nav-website-logo-mobile {
+    height: 32px;
+    width: 39px;
+    margin-right: 8px;
+  }
+
+  .nav-logo-title-mobile {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #f7931e;
+  }
+
+  .hamburger-icon {
+    font-size: 24px;
+    color: #231f20;
+  }
+
+  .drop-down-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 24px;
+    width: 100%;
+    grid-column: 1 / span 12;
+  }
+
+  .mobile-drop-down-ul-container {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .mobile-li-nav {
+    margin-right: 32px;
+  }
+  .mobile-li-nav:last-child {
+    margin-right: 0;
+  }
+
+  .hamburger-btn {
+    border: none;
+    background-color: transparent;
+  }
+
+  .mobile-close-btn-container {
+    flex-grow: 1;
+    text-align: end;
+  }
+
+  .close-btn {
+    border: none;
+    background-color: transparent;
+  }
+
+  .close-icon {
+    font-size: 24px;
+  }
+}
+
+/* ----------------------------Common To Both --------------------------- */
+
+.tasty-kitchen-list {
+  flex-grow: 1;
+}
+
+.nav-link-list {
+  margin-right: 30px;
+}
+
 .nav-logo-title {
   font-size: 24px;
   font-style: italic;
@@ -38,25 +156,27 @@
   text-align: left;
   color: #f7931e;
 }
+
 .nav-options {
   color: #334155;
   font-size: 16px;
   font-weight: 700;
   line-height: 26px;
-  letter-spacing: -0.35555556416511536px;
+  letter-spacing: -0.3px;
   text-align: left;
 }
-.desktop-ul-nav-container {
-  list-style-type: none;
-  display: flex;
-  align-items: center;
+
+.cart-item-count {
+  background-color: lightseagreen;
+  padding: 5px 8px;
+  border-radius: 100px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  margin-left: 10px;
+  width: 40px;
 }
-.desktop-li-nav {
-  margin-right: 32px;
-}
-.desktop-li-nav:last-child {
-  margin-right: 0;
-}
+
 .nav-logout-btn {
   height: 32px;
   width: 73px;
@@ -74,99 +194,9 @@
   line-height: 16px;
   letter-spacing: 0em;
   text-align: left;
+  cursor: pointer;
 }
+
 .nav-selected {
   color: #f7931e;
-}
-
-.nav-mobile-container {
-  display: none;
-}
-.drop-down-container {
-  display: none;
-}
-
-@media all and (max-width: 600px) {
-  .header {
-    padding: 0;
-  }
-  .nav-desktop-container {
-    display: none;
-  }
-  .nav-mobile-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* background-color: green; */
-    width: 100%;
-    grid-column: 1 / span 12;
-    padding: 20px;
-  }
-  .nav-website-logo-mobile {
-    height: 32px;
-    width: 39px;
-    margin-right: 8px;
-  }
-  .nav-logo-title-mobile {
-    font-size: 16px;
-    font-style: italic;
-    font-weight: 700;
-    line-height: 24px;
-    letter-spacing: 0px;
-    text-align: left;
-    color: #f7931e;
-  }
-  .hamburger-icon {
-    font-size: 24px;
-    color: #231f20;
-  }
-  .drop-down-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #fff;
-    padding: 24px;
-    width: 100%;
-    grid-column: 1 / span 12;
-  }
-  .hamburger-btn {
-    border: none;
-    background-color: transparent;
-  }
-  .close-btn {
-    border: none;
-    background-color: transparent;
-  }
-  .close-icon {
-    font-size: 24px;
-  }
-}
-
-/* ------------------------------------------------------- */
-.desktop-ul-container {
-  display: flex;
-  align-items: center;
-  list-style-type: none;
-  background-color: #f8fafc;
-  width: 100%;
-}
-.tasty-kitchen-list {
-  flex-grow: 1;
-}
-.nav-link-list {
-  margin-right: 30px;
-}
-.nav-website-logo-container {
-  list-style-type: none;
-  /* background-color: red; */
-  width: 100%;
-}
-.mobile-close-btn-container {
-  /* background-color: red; */
-  flex-grow: 1;
-  text-align: end;
-}
-.desktop-ul-nav-container {
-  /* background-color: green; */
-  width: 100%;
 }

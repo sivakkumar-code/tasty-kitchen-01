@@ -13,13 +13,17 @@ class Cart extends Component {
     placeOrder: false,
   }
 
-  placeOrder = () => this.setState({placeOrder: true})
+  placeOrder = () => {
+    localStorage.setItem('cartData', JSON.stringify([]))
+    this.setState({
+      placeOrder: true,
+      cartList: JSON.parse(localStorage.getItem('cartData')),
+    })
+  }
 
   goHomeAfterPayment = () => {
-    const {history} = this.props
-    history.replace('/')
-    localStorage.setItem('cartData', JSON.stringify([]))
     this.setState({placeOrder: false})
+    localStorage.setItem('cartData', JSON.stringify([]))
   }
 
   incrementQuantity = id =>
@@ -55,10 +59,7 @@ class Cart extends Component {
   render() {
     const {cartList, placeOrder} = this.state
     localStorage.setItem('cartData', JSON.stringify(cartList))
-    // if (cartList !== null) {
-    //   localStorage.setItem('cartData', JSON.stringify(cartList))
-    // }
-    console.log(cartList, 'cartlist')
+
     let total = 0
     cartList.forEach(item => {
       total += item.quantity * item.cost
@@ -154,21 +155,21 @@ class Cart extends Component {
                   />
                   <h1 className="payment-success-title">Payment Successful</h1>
                   <p className="payment-success-para">
-                    Thank you for ordering Your payment is successfully
+                    Thank you for ordering <br /> Your payment is successfully
                     completed.
                   </p>
                   <Link className="nav-link" to="/">
                     <button
                       type="button"
                       className="btn-common-orange"
-                      // onClick={this.goHomeAfterPayment}
+                      onClick={this.goHomeAfterPayment}
                     >
                       Go To Home Page
                     </button>
                   </Link>
                 </div>
               )}
-              {cartList.length === 0 && (
+              {cartList.length === 0 && !placeOrder && (
                 <div className="no-order-container">
                   <img
                     src="https://res.cloudinary.com/dmhszvxi1/image/upload/v1681130273/Tasty_Kitchens/no_orders_image_dov7dc.png"

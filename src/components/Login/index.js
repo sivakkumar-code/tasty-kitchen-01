@@ -49,7 +49,7 @@ class Login extends Component {
 
     return (
       <div className="login-responsive-container">
-        <div className="login-bg-container-desktop">
+        <div className="login-bg-container">
           <div className="login-left-section">
             <div className="login-inputs-container">
               <div className="login-header">
